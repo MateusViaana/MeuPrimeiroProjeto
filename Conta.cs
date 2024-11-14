@@ -6,15 +6,27 @@ public class Saldo
 
     public void SetSaldo(double saldo)
     {
-       
-        if (saldo >= 0)
+
+        try
         {
-            _saldo = saldo;
-            Console.WriteLine("Seu saldo é: "+ saldo);
+            if (saldo >= 0)
+            {
+                _saldo = saldo;
+                Console.WriteLine("Seu saldo é: " + saldo);
+            }
+            else
+            {
+                throw new Exception("Saldo não pode ser negativo!");
+
+            }
         }
-        else
+        catch (Exception ex)
         {
-            Console.WriteLine("Saldo incorreto!");
+
+            Console.WriteLine(ex.Message); ;
         }
+        
     }
 }
+
+
